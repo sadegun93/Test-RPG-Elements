@@ -43,6 +43,10 @@ namespace Test_RPG_Elements
             Console.ReadLine();
 
             Equips.EquipWeapon(Equips.WoodenSword);
+
+            Console.ReadLine();
+
+            Equips.EquipArmor(Equips.HauteCoutre);
         }
     }
 }

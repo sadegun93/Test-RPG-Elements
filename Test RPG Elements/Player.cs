@@ -33,7 +33,18 @@ namespace Test_RPG_Elements
     {
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
-        public static int health;
+        static int health;
+        public static int GetHealth
+        {
+            get
+            {
+                return health;
+            }
+            set
+            {
+                health = value;
+            }
+        }
         static int attack;
         public static int GetAttack
         {
@@ -47,20 +58,53 @@ namespace Test_RPG_Elements
             }
         }
         static int defense;
+        public static int GetDefense
+        {
+            get
+            {
+                return defense;
+            }
+            set
+            {
+                defense = value;
+            }
+        }
         static int magicAttack;
         public static int GetMagicAttack
         {
             get
             {
-                return attack;
+                return magicAttack;
             }
             set
             {
-                attack = value;
+                magicAttack = value;
             }
         }
-        public static int magicDefense;
+        static int magicDefense;
+        public static int GetMagicDefense
+        {
+            get
+            {
+                return magicDefense;
+            }
+            set
+            {
+                magicDefense = value;
+            }
+        }
         public static int speed;
+        public static int GetSpeed
+        {
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                speed = value;
+            }
+        }
 
         //strings to save the player's equipment
         static string weapon;
@@ -71,8 +115,22 @@ namespace Test_RPG_Elements
                 weapon = value;
             }
         }
-        public static string armor;
-        public static string accessory;
+        static string armor;
+        public static string SetArmor
+        {
+            set
+            {
+                armor = value;
+            }
+        }
+        static string accessory;
+        public static string SetAccessory
+        {
+            set
+            {
+                accessory = value;
+            }
+        }
 
         //String to save whether or not the player wants to view their stats
         public static string viewStats;

@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accessories.cs" />
+    <Compile Include="Armor.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="Mage.cs" />
     <Compile Include="Player.cs" />
