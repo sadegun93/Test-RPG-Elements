@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * Enemies
  * Items
  * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
- * Armor
+ * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
  * Leveling Up (Works)
@@ -26,6 +26,7 @@ namespace Test_RPG_Elements
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
         static int mageHealth = 100;
+        static int mageRemainingHealth = mageHealth;
         static int mageAttack = 10;
         static int mageDefense = 10;
         static int mageMagicAttack = 50;
@@ -33,7 +34,7 @@ namespace Test_RPG_Elements
         static int mageSpeed = 15;
 
         //Constructor that will use the parent class as a base
-        public Mage() : base(mageHealth, mageAttack, mageDefense, mageMagicAttack, mageMagicDefense, mageSpeed, GetLevel)
+        public Mage() : base(mageHealth, mageRemainingHealth, mageAttack, mageDefense, mageMagicAttack, mageMagicDefense, mageSpeed, GetLevel)
         {
 
         }

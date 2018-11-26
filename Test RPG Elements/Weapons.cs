@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * Enemies
  * Items
  * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
- * Armor
+ * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
  * Leveling Up (Works)

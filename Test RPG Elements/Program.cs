@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * Enemies
  * Items
  * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
- * Armor
+ * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
  * Leveling Up (Works)
@@ -47,6 +47,16 @@ namespace Test_RPG_Elements
             Console.ReadLine();
 
             Equips.EquipArmor(Equips.HauteCoutre);
+
+            Console.ReadLine();
+
+            Equips.EquipAccessory(Equips.Boots);
+
+            Console.WriteLine("You took 30 damage!");
+            Player.GetRemainingHealth -= 30;
+
+            Console.WriteLine(Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+            
         }
     }
 }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * Enemies
  * Items
  * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
- * Armor
+ * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
  * Leveling Up (Works)
@@ -33,16 +33,28 @@ namespace Test_RPG_Elements
     {
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
-        static int health;
-        public static int GetHealth
+        static int maxHealth;
+        public static int GetMaxHealth
         {
             get
             {
-                return health;
+                return maxHealth;
             }
             set
             {
-                health = value;
+                maxHealth = value;
+            }
+        }
+        static int remainingHealth;
+        public static int GetRemainingHealth
+        {
+            get
+            {
+                return remainingHealth;
+            }
+            set
+            {
+                remainingHealth = value;
             }
         }
         static int attack;
@@ -191,7 +203,7 @@ namespace Test_RPG_Elements
             {
 
                 level = level + 1;
-                StatGrowth(health, attack, defense, magicAttack, magicDefense, speed);
+                StatGrowth(maxHealth, attack, defense, magicAttack, magicDefense, speed);
 
                 Console.WriteLine("You've leveled up! You are now Level " + level + ".");
                 PlayerStats(SetUp.playerClass);
@@ -209,12 +221,13 @@ namespace Test_RPG_Elements
         //Will be included in the Experience method under the level up
         public static void StatGrowth(int hp, int atk, int def, int matk, int mdef, int spd)
         {
-            health = (int)(hp * 1.1);
-            attack = (int)(atk * 1.1);
-            defense = (int)(def * 1.1);
-            magicAttack = (int)(matk * 1.1);
-            magicDefense = (int)(mdef * 1.1);
-            speed = (int)(spd * 1.1);
+            maxHealth = (int)Math.Round(hp * 1.1 + 0.05);
+            remainingHealth = maxHealth;
+            attack = (int)Math.Round(atk * 1.1 + 0.05);
+            defense = (int)Math.Round(def * 1.1 + 0.05);
+            magicAttack = (int)Math.Round(matk * 1.1 + 0.05);
+            magicDefense = (int)Math.Round(mdef * 1.1 + 0.05);
+            speed = (int)Math.Round(spd * 1.1 + 0.05);
         }
 
         //Method to display the player's stats if they want to
@@ -222,7 +235,7 @@ namespace Test_RPG_Elements
         {
             Console.WriteLine("Would you like to view your stats?\nY/N");
             viewStats = Console.ReadLine().Trim().ToUpper();
-            if(!(string.IsNullOrEmpty(viewStats)))
+            if (!(string.IsNullOrEmpty(viewStats)))
             {
                 viewStats = viewStats.Substring(0, 1);
             }
@@ -237,14 +250,14 @@ namespace Test_RPG_Elements
                 }
             }
 
-            if(viewStats == "Y")
+            if (viewStats == "Y")
             {
-                switch(SetUp.playerClass)
+                switch (SetUp.playerClass)
                 {
                     case "Tank":
                         //Tank Stats
                         Console.WriteLine("Level: " + Tank.level);
-                        Console.WriteLine("Hit Points: " + Tank.health);
+                        Console.WriteLine("Hit Points: " + Tank.remainingHealth + "/" + Tank.maxHealth);
                         Console.WriteLine("Attack: " + Tank.attack);
                         Console.WriteLine("Defense: " + Tank.defense);
                         Console.WriteLine("Magic Attack: " + Tank.magicAttack);
@@ -254,7 +267,7 @@ namespace Test_RPG_Elements
                     case "Warrior":
                         //Warrior Stats
                         Console.WriteLine("Level: " + Warrior.level);
-                        Console.WriteLine("Hit Points: " + Warrior.health);
+                        Console.WriteLine("Hit Points: " + Warrior.maxHealth);
                         Console.WriteLine("Attack: " + Warrior.attack);
                         Console.WriteLine("Defense: " + Warrior.defense);
                         Console.WriteLine("Magic Attack: " + Warrior.magicAttack);
@@ -264,7 +277,7 @@ namespace Test_RPG_Elements
                     case "Mage":
                         //Mage Stats
                         Console.WriteLine("Level: " + Mage.level);
-                        Console.WriteLine("Hit Points: " + Mage.health);
+                        Console.WriteLine("Hit Points: " + Mage.maxHealth);
                         Console.WriteLine("Attack: " + Mage.attack);
                         Console.WriteLine("Defense: " + Mage.defense);
                         Console.WriteLine("Magic Attack: " + Mage.magicAttack);
@@ -274,7 +287,7 @@ namespace Test_RPG_Elements
                     case "Thief":
                         //Thief Stats
                         Console.WriteLine("Level: " + Thief.level);
-                        Console.WriteLine("Hit Points: " + Thief.health);
+                        Console.WriteLine("Hit Points: " + Thief.maxHealth);
                         Console.WriteLine("Attack: " + Thief.attack);
                         Console.WriteLine("Defense: " + Thief.defense);
                         Console.WriteLine("Magic Attack: " + Thief.magicAttack);
@@ -290,9 +303,10 @@ namespace Test_RPG_Elements
         }
 
         //Constructor of Player to set initial stats
-        public Player (int hp, int atk, int def, int matk, int mdef, int spd, int lvl)
+        public Player (int hp, int rhp, int atk, int def, int matk, int mdef, int spd, int lvl)
         {
-            health = hp;
+            maxHealth = hp;
+            remainingHealth = rhp;
             attack = atk;
             defense = def;
             magicAttack = matk;

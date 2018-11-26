@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * Enemies
  * Items
  * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
- * Armor
+ * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
  * Leveling Up (Works)
@@ -129,7 +129,7 @@ namespace Test_RPG_Elements
 
                 Console.WriteLine("You have equipped the " + Accessory.GetAccessoryName + ".");
                 Player.SetAccessory = Accessory.GetAccessoryName;
-                Player.GetHealth += Accessory.GetAugmentHealth;
+                Player.GetMaxHealth += Accessory.GetAugmentHealth;
                 Player.GetAttack += Accessory.GetAugmentAttack;
                 Player.GetMagicAttack += Accessory.GetAugmentMagicAttack;
                 Player.GetDefense += Accessory.GetAugmentDefense;
