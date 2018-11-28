@@ -20,8 +20,42 @@ using System.Threading.Tasks;
 
 namespace Test_RPG_Elements
 {
-    public static class SetUp
+    public class SetUp
     {
+        //Class  objects to be created depending on what the player chooses.
+        static Tank PlayerTank;
+        public static Tank GetPlayerTank
+        {
+            get
+            {
+                return PlayerTank;
+            }
+        }
+        static Warrior PlayerWarrior;
+        public static Warrior GetPlayerWarrior
+        {
+            get
+            {
+                return PlayerWarrior;
+            }
+        }
+        static Mage PlayerMage;
+        public static Mage GetPlayerMage
+        {
+            get
+            {
+                return PlayerMage;
+            }
+        }
+        static Thief PlayerThief;
+        public static Thief GetPlayerThief
+        {
+            get
+            {
+                return PlayerThief;
+            }
+        }
+
         //int to save what class the player chose
         public static int classSelection;
         //string to save the class that the player chooses
@@ -55,25 +89,25 @@ namespace Test_RPG_Elements
             {
                 case 1:
                     //Tank
-                    Tank PlayerTank = new Tank();
+                    PlayerTank = new Tank();
                     Console.WriteLine("You are now a Tank.");
                     playerClass = "Tank";
                     return playerClass;
                 case 2:
                     //Warrior
-                    Warrior PlayerWarrior = new Warrior();
+                    PlayerWarrior = new Warrior();
                     Console.WriteLine("You are now a Warrior.");
                     playerClass = "Warrior";
                     return playerClass;
                 case 3:
                     //Mage
-                    Mage PlayerMage = new Mage();
+                    PlayerMage = new Mage();
                     Console.WriteLine("You are now a Mage.");
                     playerClass = "Mage";
                     return playerClass;
                 case 4:
                     //Thief
-                    Thief PlayerThief = new Thief();
+                    PlayerThief = new Thief();
                     Console.WriteLine("You are now a Thief.");
                     playerClass = "Thief";
                     return playerClass;

@@ -25,16 +25,16 @@ namespace Test_RPG_Elements
     {
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
-        static int mageHealth = 100;
+        /*static int mageHealth = 100;
         static int mageRemainingHealth = mageHealth;
         static int mageAttack = 10;
         static int mageDefense = 10;
         static int mageMagicAttack = 50;
         static int mageMagicDefense = 50;
-        static int mageSpeed = 15;
+        static int mageSpeed = 15;*/
 
         //Constructor that will use the parent class as a base
-        public Mage() : base(mageHealth, mageRemainingHealth, mageAttack, mageDefense, mageMagicAttack, mageMagicDefense, mageSpeed, GetLevel)
+        public Mage() : base(100, 100, 10, 10, 50, 50, 15, 1)
         {
 
         }

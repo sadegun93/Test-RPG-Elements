@@ -31,6 +31,8 @@ namespace Test_RPG_Elements
     */
     public abstract class Player
     {
+        public string name;
+
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
         static int maxHealth;
@@ -256,43 +258,19 @@ namespace Test_RPG_Elements
                 {
                     case "Tank":
                         //Tank Stats
-                        Console.WriteLine("Level: " + Tank.level);
-                        Console.WriteLine("Hit Points: " + Tank.remainingHealth + "/" + Tank.maxHealth);
-                        Console.WriteLine("Attack: " + Tank.attack);
-                        Console.WriteLine("Defense: " + Tank.defense);
-                        Console.WriteLine("Magic Attack: " + Tank.magicAttack);
-                        Console.WriteLine("Magic Defense: " + Tank.magicDefense);
-                        Console.WriteLine("Speed: " + Tank.speed);
+                        Console.WriteLine(SetUp.GetPlayerTank);
                         break;
                     case "Warrior":
                         //Warrior Stats
-                        Console.WriteLine("Level: " + Warrior.level);
-                        Console.WriteLine("Hit Points: " + Warrior.maxHealth);
-                        Console.WriteLine("Attack: " + Warrior.attack);
-                        Console.WriteLine("Defense: " + Warrior.defense);
-                        Console.WriteLine("Magic Attack: " + Warrior.magicAttack);
-                        Console.WriteLine("Magic Defense: " + Warrior.magicDefense);
-                        Console.WriteLine("Speed: " + Warrior.speed);
+                        Console.WriteLine(SetUp.GetPlayerWarrior);
                         break;
                     case "Mage":
                         //Mage Stats
-                        Console.WriteLine("Level: " + Mage.level);
-                        Console.WriteLine("Hit Points: " + Mage.maxHealth);
-                        Console.WriteLine("Attack: " + Mage.attack);
-                        Console.WriteLine("Defense: " + Mage.defense);
-                        Console.WriteLine("Magic Attack: " + Mage.magicAttack);
-                        Console.WriteLine("Magic Defense: " + Mage.magicDefense);
-                        Console.WriteLine("Speed: " + Mage.speed);
+                        Console.WriteLine(SetUp.GetPlayerMage);
                         break;
                     case "Thief":
                         //Thief Stats
-                        Console.WriteLine("Level: " + Thief.level);
-                        Console.WriteLine("Hit Points: " + Thief.maxHealth);
-                        Console.WriteLine("Attack: " + Thief.attack);
-                        Console.WriteLine("Defense: " + Thief.defense);
-                        Console.WriteLine("Magic Attack: " + Thief.magicAttack);
-                        Console.WriteLine("Magic Defense: " + Thief.magicDefense);
-                        Console.WriteLine("Speed: " + Thief.speed);
+                        Console.WriteLine(SetUp.GetPlayerThief);
                         break;
                     default:
                         //Exit
@@ -300,6 +278,19 @@ namespace Test_RPG_Elements
                 }
             }
 
+        }
+
+        public override string ToString()
+        {
+            return
+                "Level: " + GetLevel +
+                "\nHit Points: " + remainingHealth + "/" + maxHealth +
+                "\nAttack: " + attack +
+                "\nDefense: " + defense +
+                "\nMagic Attack: " + magicAttack +
+                "\nMagic Defense: " + magicDefense +
+                "\nSpeed: " + speed;
+                
         }
 
         //Constructor of Player to set initial stats

@@ -25,16 +25,16 @@ namespace Test_RPG_Elements
     {
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
-        static int tankHealth = 200;
+        /*static int tankHealth = 200;
         static int tankRemainingHealth = tankHealth;
         static int tankAttack = 20;
         static int tankDefense = 50;
         static int tankMagicAttack = 15;
         static int tankMagicDefense = 30;
-        static int tankSpeed = 10;
+        static int tankSpeed = 10;*/
 
         //Constructor that will use the parent class as a base
-        public Tank(): base(tankHealth, tankRemainingHealth,tankAttack, tankDefense, tankMagicAttack, tankMagicDefense, tankSpeed, GetLevel)
+        public Tank(): base(200, 200, 20, 50, 15, 30, 10, 1)
         {
 
         }

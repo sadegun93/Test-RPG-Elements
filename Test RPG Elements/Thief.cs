@@ -25,16 +25,16 @@ namespace Test_RPG_Elements
     {
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
-        static int thiefHealth = 75;
+        /*static int thiefHealth = 75;
         static int thiefRemainingHealth = thiefHealth;
         static int thiefAttack = 15;
         static int thiefDefense = 15;
         static int thiefMagicAttack = 10;
         static int thiefMagicDefense = 10;
-        static int thiefSpeed = 30;
+        static int thiefSpeed = 30;*/
 
         //Constructor that will use the parent class as a base
-        public Thief() : base(thiefHealth, thiefRemainingHealth,thiefAttack, thiefDefense, thiefMagicAttack, thiefMagicDefense, thiefSpeed, GetLevel)
+        public Thief() : base(75, 75, 15, 15, 10, 10, 30, 1)
         {
 
         }

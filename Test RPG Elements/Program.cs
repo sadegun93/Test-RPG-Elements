@@ -52,6 +52,8 @@ namespace Test_RPG_Elements
 
             Equips.EquipAccessory(Equips.Boots);
 
+            Console.ReadLine();
+
             Console.WriteLine("You took 30 damage!");
             Player.GetRemainingHealth -= 30;
 
