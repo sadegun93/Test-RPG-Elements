@@ -22,6 +22,24 @@ namespace Test_RPG_Elements
 {
     public class SetUp
     {
+        //Random Object and method to be used throughout the program
+        static Random UniversalDice = new Random();
+        public static Random GetUniversalDice
+        {
+            get
+            {
+                return UniversalDice;
+            }
+        }
+        /*public static void UniversalRoll(int start, int end)
+        {
+            int result;
+
+            Random UniversalDice = new Random();
+
+            result = UniversalDice.Next(start, end + 1);
+        }*/
+
         //Class  objects to be created depending on what the player chooses.
         static Tank PlayerTank;
         public static Tank GetPlayerTank

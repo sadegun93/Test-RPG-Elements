@@ -120,6 +120,9 @@ namespace Test_RPG_Elements
             }
         }
 
+        //int to save the damage that the player deals
+        public int attackDamage;
+
         //strings to save the player's equipment
         static string weapon;
         public static string SetWeapon
