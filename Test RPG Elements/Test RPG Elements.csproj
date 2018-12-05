@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Accessories.cs" />
     <Compile Include="Armor.cs" />
+    <Compile Include="Enemies.cs" />
     <Compile Include="Equipment.cs" />
+    <Compile Include="Griffin.cs" />
     <Compile Include="Mage.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

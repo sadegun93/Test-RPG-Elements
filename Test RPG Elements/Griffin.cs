@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Test_RPG_Elements
 {
     //Test Enemy Class to see if they work correctly
-    class Griffin:Enemies
+    public class Griffin:Enemies
     {
         /*static int griffinHealth = 100;
         static int griffinRemainingHealth = mageHealth;
@@ -17,13 +17,8 @@ namespace Test_RPG_Elements
         static int griffinMagicDefense = 20;
         static int griffinSpeed = 20;*/
 
-        //Int to save result of attack roll
-        public int enemyAttack;
-        //int to save the damage that the enemy deals to the player
-        public int enemyDamage;
-
         //Constructor that will use the parent class as a base
-        public Griffin() : base(100, 15, 15, 20, 20, 20, 1)
+        public Griffin(string GriffinName, int hp, int atk, int def, int matk, int mdef, int spd, int lvl) : base("Griffin", 100, 15, 15, 20, 20, 20, 1)
         {
 
         }
@@ -42,14 +37,26 @@ namespace Test_RPG_Elements
             if(enemyAttack >= 1 && enemyAttack <= 50)
             {
                 //Gust Attack
+                enemyDamage = SetUp.GetUniversalDice.Next(1, 10);
+                Console.WriteLine("The griffin beat its wings furiously.\nA strong gust blew " + Player.GetName + " back, knocking them over. " + Player.GetName + " took " + enemyDamage + " damage.");
+                Player.GetRemainingHealth -= enemyDamage;
+                Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
             }
             if (enemyAttack >= 51 && enemyAttack <= 85)
             {
                 //Tackle Attack
+                enemyDamage = SetUp.GetUniversalDice.Next(5, 13);
+                Console.WriteLine("The griffin rushed forward, slamming into " + Player.GetName + ". They hit the ground with a hard thud. " + Player.GetName + " took " + enemyDamage + " damage.");
+                Player.GetRemainingHealth -= enemyDamage;
+                Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
             }
             if (enemyAttack >= 86 && enemyAttack <= 100)
             {
                 //Peck Attack
+                enemyDamage = SetUp.GetUniversalDice.Next(10, 20);
+                Console.WriteLine("The griffin bent for a moment then lunged forward. Its sharp beak plunged into " + Player.GetName + "'s shoulder.\n It ripped its beak out, and " + Player.GetName + " held onto their bloodied shoulder.\n" + Player.GetName + " took " + enemyDamage + " damage.");
+                Player.GetRemainingHealth -= enemyDamage;
+                Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
             }
         }
 

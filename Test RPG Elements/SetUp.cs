@@ -84,6 +84,8 @@ namespace Test_RPG_Elements
         //Method to choose what class the player will be
         public static string ChooseClass()
         {
+            SetName();
+
             Console.WriteLine("Please choose what class you would like to be. You have four options.");
             Console.WriteLine("1. The Tank - This fighter is great at taking hits and weathering the storm\n" +
                 "2. The Warrior - This fighter knows how to fight and bring their enemies to their knees\n" +
@@ -136,6 +138,20 @@ namespace Test_RPG_Elements
                     playerClass = "Tank";
                     return playerClass;
             }
+        }
+
+        public static string SetName()
+        {
+            Console.WriteLine("What is your name?");
+            Player.GetName = Console.ReadLine();
+
+            while(string.IsNullOrEmpty(Player.GetName))
+            {
+                Console.WriteLine("You didn't enter a name. Please enter a name before continuing.");
+                Player.GetName = Console.ReadLine();
+            }
+
+            return Player.GetName;
         }
     }
 }

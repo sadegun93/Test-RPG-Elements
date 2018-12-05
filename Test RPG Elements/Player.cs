@@ -31,7 +31,18 @@ namespace Test_RPG_Elements
     */
     public abstract class Player
     {
-        public string name;
+        static string name;
+        public static string GetName
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
 
         //When the player's health would get to below zero, set it to zero
         //Include that in a set property
@@ -286,7 +297,8 @@ namespace Test_RPG_Elements
         public override string ToString()
         {
             return
-                "Level: " + GetLevel +
+                "Name: " + GetName + 
+                "\nLevel: " + GetLevel +
                 "\nHit Points: " + remainingHealth + "/" + maxHealth +
                 "\nAttack: " + attack +
                 "\nDefense: " + defense +
@@ -297,8 +309,9 @@ namespace Test_RPG_Elements
         }
 
         //Constructor of Player to set initial stats
-        public Player (int hp, int rhp, int atk, int def, int matk, int mdef, int spd, int lvl)
+        public Player (string playerName, int hp, int rhp, int atk, int def, int matk, int mdef, int spd, int lvl)
         {
+            name = playerName;
             maxHealth = hp;
             remainingHealth = rhp;
             attack = atk;

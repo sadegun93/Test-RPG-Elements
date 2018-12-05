@@ -34,7 +34,7 @@ namespace Test_RPG_Elements
         static int thiefSpeed = 30;*/
 
         //Constructor that will use the parent class as a base
-        public Thief() : base(75, 75, 15, 15, 10, 10, 30, 1)
+        public Thief() : base(Player.GetName, 75, 75, 15, 15, 10, 10, 30, 1)
         {
 
         }

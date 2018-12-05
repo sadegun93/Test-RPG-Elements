@@ -34,7 +34,7 @@ namespace Test_RPG_Elements
         static int tankSpeed = 10;*/
 
         //Constructor that will use the parent class as a base
-        public Tank(): base(200, 200, 20, 50, 15, 30, 10, 1)
+        public Tank(): base(Player.GetName, 200, 200, 20, 50, 15, 30, 10, 1)
         {
 
         }

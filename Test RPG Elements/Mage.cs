@@ -34,7 +34,7 @@ namespace Test_RPG_Elements
         static int mageSpeed = 15;*/
 
         //Constructor that will use the parent class as a base
-        public Mage() : base(100, 100, 10, 10, 50, 50, 15, 1)
+        public Mage() : base(Player.GetName, 100, 100, 10, 10, 50, 50, 15, 1)
         {
 
         }

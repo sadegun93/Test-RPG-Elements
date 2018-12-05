@@ -58,7 +58,10 @@ namespace Test_RPG_Elements
             Player.GetRemainingHealth -= 30;
 
             Console.WriteLine(Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
-            
+
+            Griffin TestGriffin = new Griffin("Griffin", 100, 15, 15, 20, 20, 20, 1);
+
+            TestGriffin.Attack();
         }
     }
 }
