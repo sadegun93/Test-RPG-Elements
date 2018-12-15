@@ -48,6 +48,7 @@
     <Compile Include="Enemies.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="Griffin.cs" />
+    <Compile Include="Items.cs" />
     <Compile Include="Mage.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

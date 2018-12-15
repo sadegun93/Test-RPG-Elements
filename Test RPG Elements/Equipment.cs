@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 /*Author: Stephen Adegun
  * Created: November 22nd, 2018
  * Purpose: Test to see if various RPG elements can work
  * Elements to be tested:
  * Player (Stats) (Works)
- * Enemies
- * Items
- * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
+ * Enemies (Attacks) (Works)
+ * Items (Gels) (Works)
+ * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
@@ -34,6 +35,27 @@ namespace Test_RPG_Elements
 
         //Object of the Accessory Class; Boots
         public Accessories Boots = new Accessories("Boots", "Boots", 0, 0, 0, 3, 1, 4);
+
+        //Object of the Item Class; Potion
+        public Items HPPotion = new Items("Potion", 50);
+
+        //Object of the Item Class; Ether
+        public Items SPEther = new Items("Ether", 15);
+
+        //Object of the Item Class; Elixer
+        public Items Elixir = new Items("Elixir", 50, 10);
+
+        //Object of the Item Class; Apple Gel & Lemon Gel
+        public Items AppleGel = new Items("Apple Gel", Player.GetRemainingHealth, Player.GetMaxHealth, 0);
+        public Items LemonGel = new Items("Lemon Gel", Player.GetRemainingHealth, Player.GetMaxHealth, 0);
+
+        //Object of the Item Class; Orange Gel & Pineapple Gel
+        public Items OrangeGel = new Items("Orange Gel", Player.GetRemainingSkillPoints, Player.GetMaxSkillPoints, 0);
+        public Items PineappleGel = new Items("Pineapple Gel", Player.GetRemainingSkillPoints, Player.GetMaxSkillPoints, 0);
+
+        //Object of the Item Class; Melange Gel & Miracle Gel
+        public Items MelangeGel = new Items("Melange Gel", Player.GetRemainingHealth, Player.GetMaxHealth, Player.GetRemainingSkillPoints, Player.GetMaxSkillPoints);
+        public Items MiracleGel = new Items("Miracle Gel", Player.GetRemainingHealth, Player.GetMaxHealth, Player.GetRemainingSkillPoints, Player.GetMaxSkillPoints);
 
         public void EquipWeapon(Weapons Weapon)
         {
@@ -136,6 +158,87 @@ namespace Test_RPG_Elements
                 Player.GetMagicDefense += Accessory.GetAugmentMagicDefense;
                 Player.GetSpeed += Accessory.GetAugmentSpeed;
                 Player.PlayerStats(SetUp.playerClass);
+            }
+        }
+        public void UseItem(Items Item)
+        {
+            Console.WriteLine(Player.GetName + " used " + Item.GetItemName + ".");
+
+            //Checks to see if the item is a gel. If it is, it runs a different set of code to work accordingly
+            if(Item.GetItemName.Contains("Gel"))
+            {
+                //Runs recovery code for either 30% gels
+                if (Item.GetItemName.Contains("Apple"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxHealth/3) + " health.");
+                    Player.GetRemainingHealth += (Player.GetMaxHealth / 3);
+                    Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+                }
+                if (Item.GetItemName.Contains("Orange"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxSkillPoints/3) + " skill points.");
+                    Player.GetRemainingSkillPoints += (Player.GetMaxSkillPoints / 3);
+                    Console.WriteLine("Skill Points: " + Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+                }
+                if (Item.GetItemName.Contains("Melange"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxHealth / 3) + " health.");
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxSkillPoints / 3) + " skill points.");
+                    Player.GetRemainingHealth += (Player.GetMaxHealth / 3);
+                    Player.GetRemainingSkillPoints += (Player.GetMaxSkillPoints / 3);
+                    Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+                    Console.WriteLine("Skill Points: " + Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+                }
+
+                //Runs recovery code for either 60% gels
+                if (Item.GetItemName.Contains("Lemon"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxHealth / 6) + " health.");
+                    Player.GetRemainingHealth += (Player.GetMaxHealth / 6);
+                    Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+                }
+                if (Item.GetItemName.Contains("Pineapple"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxSkillPoints / 6) + " skill points.");
+                    Player.GetRemainingSkillPoints += (Player.GetMaxSkillPoints / 6);
+                    Console.WriteLine("Skill Points: " + Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+                }
+                else if (Item.GetItemName.Contains("Miracle"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxHealth / 3) + " health.");
+                    Console.WriteLine(Player.GetName + " restored " + (Player.GetMaxSkillPoints / 3) + " skill points.");
+                    Player.GetRemainingHealth += (Player.GetMaxHealth / 6);
+                    Player.GetRemainingSkillPoints += (Player.GetMaxSkillPoints / 6);
+                    Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+                    Console.WriteLine("Skill Points: " + Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+                }
+            }
+
+            //Checks to see if the item is NOT a gel
+            else if (!(Item.GetItemName.Contains("Gel")))
+            {
+                //Checks to see if the Item's name contains HP, MP, or neither, which means it restores both
+                if(Item.GetItemName.Contains("HP"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + Item.GetHPRestore + " health.");
+                    Player.GetRemainingHealth += Item.GetHPRestore;
+                    Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+                }
+                if (Item.GetItemName.Contains("SP"))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + Item.GetSPRestore + " skill points.");
+                    Player.GetRemainingSkillPoints += Item.GetSPRestore;
+                    Console.WriteLine("Skill Points: " + Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+                }
+                else //if (!(Item.GetItemName.Contains("HP") && Item.GetItemName.Contains("SP")))
+                {
+                    Console.WriteLine(Player.GetName + " restored " + Item.GetHPRestore + " health.");
+                    Console.WriteLine(Player.GetName + " restored " + Item.GetSPRestore + " skill points.");
+                    Player.GetRemainingHealth += Item.GetHPRestore;
+                    Player.GetRemainingSkillPoints += Item.GetSPRestore;
+                    Console.WriteLine("Hit Points: " + Player.GetRemainingHealth + "/" + Player.GetMaxHealth);
+                    Console.WriteLine("Skill Points: " + Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+                }
             }
         }
     }

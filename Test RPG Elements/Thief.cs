@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 /*Author: Stephen Adegun
  * Created: November 22nd, 2018
  * Purpose: Test to see if various RPG elements can work
  * Elements to be tested:
  * Player (Stats) (Works)
- * Enemies
- * Items
- * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
+ * Enemies (Attacks) (Works)
+ * Items (Gels) (Works)
+ * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
@@ -34,7 +35,7 @@ namespace Test_RPG_Elements
         static int thiefSpeed = 30;*/
 
         //Constructor that will use the parent class as a base
-        public Thief() : base(Player.GetName, 75, 75, 15, 15, 10, 10, 30, 1)
+        public Thief() : base(Player.GetName, 75, 75, 25, 25, 15, 15, 10, 10, 30, 1)
         {
 
         }

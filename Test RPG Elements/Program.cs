@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 /*Author: Stephen Adegun
  * Created: November 22nd, 2018
  * Purpose: Test to see if various RPG elements can work
  * Elements to be tested:
  * Player (Stats) (Works)
- * Enemies
- * Items
- * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
+ * Enemies (Attacks) (Works)
+ * Items (Gels) (Works)
+ * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
@@ -62,6 +63,14 @@ namespace Test_RPG_Elements
             Griffin TestGriffin = new Griffin("Griffin", 100, 15, 15, 20, 20, 20, 1);
 
             TestGriffin.Attack();
+
+            Console.ReadLine();
+
+            Player.GetRemainingSkillPoints -= 55;
+
+            Console.WriteLine(Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
+
+            Equips.UseItem(Equips.MelangeGel);
         }
     }
 }

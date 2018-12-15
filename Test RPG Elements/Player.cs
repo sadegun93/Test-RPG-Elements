@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 /*Author: Stephen Adegun
  * Created: November 22nd, 2018
  * Purpose: Test to see if various RPG elements can work
  * Elements to be tested:
  * Player (Stats) (Works)
- * Enemies
- * Items
- * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
+ * Enemies (Attacks) (Works)
+ * Items (Gels) (Works)
+ * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
@@ -67,7 +68,45 @@ namespace Test_RPG_Elements
             }
             set
             {
-                remainingHealth = value;
+                if (value > maxHealth)
+                {
+                    remainingHealth = maxHealth;
+                }
+                else if(!(value > maxHealth))
+                {
+                    remainingHealth = value;
+                }
+            }
+        }
+        static int maxSkillPoints;
+        public static int GetMaxSkillPoints
+        {
+            get
+            {
+                return maxSkillPoints;
+            }
+            set
+            {
+                if (value > maxSkillPoints)
+                {
+                    remainingSkillPoints = maxSkillPoints;
+                }
+                else if (!(value > maxSkillPoints))
+                {
+                    remainingSkillPoints = value;
+                }
+            }
+        }
+        static int remainingSkillPoints;
+        public static int GetRemainingSkillPoints
+        {
+            get
+            {
+                return remainingSkillPoints;
+            }
+            set
+            {
+                remainingSkillPoints = value;
             }
         }
         static int attack;
@@ -300,6 +339,7 @@ namespace Test_RPG_Elements
                 "Name: " + GetName + 
                 "\nLevel: " + GetLevel +
                 "\nHit Points: " + remainingHealth + "/" + maxHealth +
+                "\nSkill Points: " + maxSkillPoints + "/" + maxSkillPoints +
                 "\nAttack: " + attack +
                 "\nDefense: " + defense +
                 "\nMagic Attack: " + magicAttack +
@@ -309,11 +349,13 @@ namespace Test_RPG_Elements
         }
 
         //Constructor of Player to set initial stats
-        public Player (string playerName, int hp, int rhp, int atk, int def, int matk, int mdef, int spd, int lvl)
+        public Player (string playerName, int hp, int rhp, int sp, int rsp, int atk, int def, int matk, int mdef, int spd, int lvl)
         {
             name = playerName;
             maxHealth = hp;
             remainingHealth = rhp;
+            maxSkillPoints = sp;
+            remainingSkillPoints = rsp;
             attack = atk;
             defense = def;
             magicAttack = matk;

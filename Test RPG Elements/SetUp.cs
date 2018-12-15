@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 /*Author: Stephen Adegun
  * Created: November 22nd, 2018
  * Purpose: Test to see if various RPG elements can work
  * Elements to be tested:
  * Player (Stats) (Works)
- * Enemies
- * Items
- * Weapons (Mostly Works; Magic Attack Augment is being added to attack along with the normal Attack Augment)
+ * Enemies (Attacks) (Works)
+ * Items (Gels) (Works)
+ * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
  * Experience Points (Works)
@@ -140,6 +141,13 @@ namespace Test_RPG_Elements
             }
         }
 
+        //In the event that the player's pronoun is at the start of a sentence, this will make the first letter capital.
+        public static string UppercaseFirst(string name)
+        {
+            // Return char and concat substring.
+            return char.ToUpper(name[0]) + name.Substring(1);
+        }
+
         public static string SetName()
         {
             Console.WriteLine("What is your name?");
@@ -150,6 +158,8 @@ namespace Test_RPG_Elements
                 Console.WriteLine("You didn't enter a name. Please enter a name before continuing.");
                 Player.GetName = Console.ReadLine();
             }
+
+            Player.GetName = UppercaseFirst(Player.GetName);
 
             return Player.GetName;
         }

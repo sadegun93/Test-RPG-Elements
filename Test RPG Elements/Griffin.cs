@@ -4,6 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*Author: Stephen Adegun
+ * Created: November 22nd, 2018
+ * Purpose: Test to see if various RPG elements can work
+ * Elements to be tested:
+ * Player (Stats) (Works)
+ * Enemies (Attacks) (Works)
+ * Items (Gels) (Works)
+ * Weapons (Works)
+ * Armor and Accessories (Works)
+ * Magic
+ * Experience Points (Works)
+ * Leveling Up (Works)
+ * Combat
+ */
+
 namespace Test_RPG_Elements
 {
     //Test Enemy Class to see if they work correctly
