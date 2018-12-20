@@ -11,6 +11,7 @@ using System.Threading.Tasks;
  * Player (Stats) (Works)
  * Enemies (Attacks) (Works)
  * Items (Gels) (Works)
+ * Inventory (Dictionary can display a few items, at least)
  * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
@@ -241,5 +242,11 @@ namespace Test_RPG_Elements
                 }
             }
         }
+
+        //Test Dictionaries to act as inventories
+        public Dictionary<Items, int> ItemInventory = new Dictionary<Items, int>();
+        public Dictionary<Weapons, int> WeaponInventory = new Dictionary<Weapons, int>();
+        public Dictionary<Armor, int> ArmorInventory = new Dictionary<Armor, int>();
+        public Dictionary<Accessories, int> AccessoryInventory = new Dictionary<Accessories, int>();
     }
 }

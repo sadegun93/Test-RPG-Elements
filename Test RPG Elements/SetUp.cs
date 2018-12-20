@@ -11,6 +11,7 @@ using System.Threading.Tasks;
  * Player (Stats) (Works)
  * Enemies (Attacks) (Works)
  * Items (Gels) (Works)
+ * Inventory (Dictionary can display a few items, at least)
  * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic

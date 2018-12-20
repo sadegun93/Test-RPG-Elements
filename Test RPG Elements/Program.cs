@@ -11,6 +11,7 @@ using System.Threading.Tasks;
  * Player (Stats) (Works)
  * Enemies (Attacks) (Works)
  * Items (Gels) (Works)
+ * Inventory (Dictionary can display a few items, at least)
  * Weapons (Works)
  * Armor and Accessories (Works)
  * Magic
@@ -71,6 +72,25 @@ namespace Test_RPG_Elements
             Console.WriteLine(Player.GetRemainingSkillPoints + "/" + Player.GetMaxSkillPoints);
 
             Equips.UseItem(Equips.MelangeGel);
+
+            Console.ReadLine();
+
+            Equips.ItemInventory.Add(Equips.HPPotion, 1);
+            Equips.ItemInventory.Add(Equips.SPEther, 1);
+            Equips.ItemInventory.Add(Equips.AppleGel, 2);
+
+            foreach (KeyValuePair<Items, int> entry in Equips.ItemInventory)
+            {
+                if (entry.Value == 1)
+                {
+                    Console.WriteLine("There is " + entry.Value + " " + entry.Key.GetItemName + ".");
+                }
+                else if (entry.Value > 1)
+                {
+                    Console.WriteLine("There are " + entry.Value + " " + entry.Key.GetItemName + "s.");
+                }
+            }
+
         }
     }
 }
